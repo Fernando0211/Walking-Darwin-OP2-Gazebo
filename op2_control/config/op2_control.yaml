@@ -1,0 +1,106 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 10
+
+    head_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    right_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    left_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    r_leg_controller:
+      type: joint_trajectory_controller/JointTrajectoryController #Sujeto a cambios XD
+
+    l_leg_controller:
+      type: joint_trajectory_controller/JointTrajectoryController 
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+head_controller:
+  ros__parameters:
+    joints:
+      - HeadPan
+      - HeadTilt
+    
+    command_interfaces:
+      - position
+    
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+right_arm_controller:
+  ros__parameters:
+    joints:
+      - RShoulderPitch
+      - RShoulderRoll
+      - r_el
+    
+    command_interfaces:
+      - position
+    
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+left_arm_controller:
+  ros__parameters:
+    joints:
+      - LShoulderPitch
+      - LShoulderRoll
+      - l_el
+    
+    command_interfaces:
+      - position
+    
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+r_leg_controller:
+  ros__parameters:
+    joints:
+      - RHipYaw
+      - RHipRoll
+      - RHipPitch
+      - RKnee
+      - RAnklePitch
+      - r_ank_roll
+    
+    command_interfaces:
+      - position
+    
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+
+l_leg_controller:
+  ros__parameters:
+    joints:
+      - l_hip_yaw
+      - LHipRoll
+      - LHipPitch
+      - LKnee
+      - LAnklePitch
+      - LAnkleRoll
+    
+    command_interfaces:
+      - position
+    
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true

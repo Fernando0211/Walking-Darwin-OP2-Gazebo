@@ -1,0 +1,21 @@
+initial positions:
+    HeadPan: 0 
+    HeadTilt: 0
+    LShoulderPitch: 0
+    LShoulderRoll: 0
+    l_el: 0
+    RShoulderPitch: 0
+    RShoulderRoll: 0
+    r_el: 0
+    l_hip_yaw: 0
+    LHipRoll: 0
+    LHipPitch: 0
+    LKnee: 0
+    LAnklePitch: 0
+    LAnkleRoll: 0
+    RHipYaw: 0
+    RHipRoll: 0
+    RHipPitch: 0
+    RKnee: 0
+    RAnklePitch: 0
+    r_ank_roll: 0

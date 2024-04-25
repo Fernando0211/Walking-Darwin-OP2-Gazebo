@@ -1,0 +1,633 @@
+<?xml version="1.0"?>
+<robot name="robotis_op2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="default_transmission" params="joint">
+        <transmission name="transmission_${joint}">
+            <plugin>transmission_interface/SimpleTransmission</plugin>
+            <actuator name="${joint}" role="actuator1"/>
+            <joint name="${joint}" role="joint1">
+                <mechanical_reduction>1.0</mechanical_reduction>
+            </joint>
+        </transmission>
+    </xacro:macro>
+	
+	<link name="base_link"/>
+
+	<link name="body_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+     		<geometry>
+        	        <mesh filename="package://op2_description/meshes/geo_op_body.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+        </visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+			<geometry>
+        	    <mesh filename="package://op2_description/meshes/geo_op_body.stl" scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>
+		<xacro:inertia_body_link />
+    </link>
+	
+	<link name="HeadPan_link">
+		<visual>
+			<origin xyz="0 0 0.03" rpy="0 0 ${-0.5*pi}" />
+        	<geometry>
+		        <mesh filename="package://op2_description/meshes/geo_op_neck.stl"  scale="0.001 0.001 0.001"/>
+        	</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+        	</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0.03" rpy="0 0 ${-0.5*pi}" />
+        	<geometry>
+		        <mesh filename="package://op2_description/meshes/geo_op_neck.stl"  scale="0.001 0.001 0.001"/>
+        	</geometry>
+		</collision>
+		<xacro:inertia_HeadPan_link />
+	</link>
+	
+	<link name="HeadTilt_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 ${pi} ${0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_head.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 ${pi} ${0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_head.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>
+		<xacro:inertia_HeadTilt_link />
+	</link>
+	
+	<link name="LShoulderPitch_link">
+			<visual>
+				<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+				<geometry>
+					<mesh filename="package://op2_description/meshes/geo_op_left_shoulder.stl"  scale="0.001 0.001 0.001"/>
+				</geometry>
+				<material name="Grey">
+					<color rgba="0.60 0.60 0.60 1.0"/>
+				</material>
+			</visual>
+			<collision>
+					<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+				<geometry>
+					<mesh filename="package://op2_description/meshes/geo_op_left_shoulder.stl"  scale="0.001 0.001 0.001"/>
+				</geometry>
+			</collision>
+			<xacro:inertia_LShoulderPitch_link />
+	</link>
+
+	<link name="LShoulderRoll_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_left_upper-arm.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_left_upper-arm.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>
+		<xacro:inertia_LShoulderRoll_link/>
+	</link>
+
+	<link name="l_el_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+			<geometry>
+				<mesh filename="package://op2_description/meshes/geo_op_left_lower-arm.stl"  scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="Grey">
+				<color rgba="0.60 0.60 0.60 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+			<geometry>
+				<mesh filename="package://op2_description/meshes/geo_op_left_lower-arm.stl"  scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="Grey">
+				<color rgba="0.60 0.60 0.60 1.0"/>
+			</material>
+		</collision>
+		<xacro:inertia_l_el_link />
+	</link>
+
+	<link name="RShoulderPitch_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_right_shoulder.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+			<geometry>
+				<mesh filename="package://op2_description/meshes/geo_op_right_shoulder.stl"  scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<xacro:inertia_RShoulderPitch_link />
+	</link>
+	
+	<link name="RShoulderRoll_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_right_upper-arm.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_right_upper-arm.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>
+		<xacro:inertia_RShoulderRoll_link />
+	</link>
+
+	<link name="r_el_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_right_lower-arm.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_right_lower-arm.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>
+		<xacro:inertia_r_el_link />
+	</link>
+
+	<link name="l_hip_yaw_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+			<geometry>
+				<mesh filename="package://op2_description/meshes/geo_op_left_hip-yaw.stl"  scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="Grey">
+				<color rgba="0.60 0.60 0.60 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+			<geometry>
+				<mesh filename="package://op2_description/meshes/geo_op_left_hip-yaw.stl"  scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<xacro:inertia_l_hip_yaw_link />
+	</link>
+
+	<link name="LHipRoll_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+			<geometry>
+					<mesh filename="package://op2_description/meshes/geo_op_left_hip-roll.stl"  scale="0.001 0.001 0.001"/>
+			</geometry>
+			<material name="Grey">
+				<color rgba="0.60 0.60 0.60 1.0"/>
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+			<geometry>
+					<mesh filename="package://op2_description/meshes/geo_op_left_hip-roll.stl"  scale="0.001 0.001 0.001"/>
+			</geometry>
+		</collision>
+		<xacro:inertia_LHipRoll_link/>
+	</link>
+	
+	<link name="LHipPitch_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_left_thigh.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_left_thigh.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>
+		<xacro:inertia_LHipPitch_link/>
+	</link>
+
+	<link name="LKnee_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+         		<mesh filename="package://op2_description/meshes/geo_op_left_shin.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+         		<mesh filename="package://op2_description/meshes/geo_op_left_shin.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>
+		<xacro:inertia_LKnee_link/>
+	</link>
+
+	<link name="LAnklePitch_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_left_ankle.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_left_ankle.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>
+		<xacro:inertia_LAnklePitch_link/>
+	</link>
+	
+	<link name="LAnkleRoll_link">
+
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_left_foot.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_left_foot.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>
+		<xacro:inertia_LAnkleRoll_link/>
+	</link>
+	
+	<link name="RHipYaw_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_right_hip-yaw.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_right_hip-yaw.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>
+		<xacro:inertia_RHipYaw_link/>
+	</link>
+
+	<link name="RHipRoll_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        	        <mesh filename="package://op2_description/meshes/geo_op_right_hip-roll.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        	        <mesh filename="package://op2_description/meshes/geo_op_right_hip-roll.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>		
+		<xacro:inertia_RHipRoll_link/>
+	</link>
+
+	<link name="RHipPitch_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_right_thigh.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_right_thigh.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>
+		<xacro:inertia_RHipPitch_link/>
+	</link>
+	
+	<link name="RKnee_link">
+		<visual>
+			<origin xyz="0 0 -0.093" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+         		<mesh filename="package://op2_description/meshes/geo_op_right_shin.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 -0.093" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+         		<mesh filename="package://op2_description/meshes/geo_op_right_shin.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>
+		<xacro:inertia_RKnee_link/>
+	</link>
+
+	<link name="RAnklePitch_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_right_ankle.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_right_ankle.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>
+		<xacro:inertia_RAnklePitch_link/>
+	</link>
+	
+	<link name="r_ank_roll_link">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_right_foot.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+      		<material name="Grey">
+        		<color rgba="0.60 0.60 0.60 1.0"/>
+      		</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 ${-0.5*pi}" />
+      		<geometry>
+        		<mesh filename="package://op2_description/meshes/geo_op_right_foot.stl"  scale="0.001 0.001 0.001"/>
+      		</geometry>
+		</collision>
+		<xacro:inertia_r_ank_roll_link/>
+	</link>
+	
+
+	<!--   JOINST -->
+
+	<joint name="floor" type="fixed">
+		<parent link="base_link"/>
+		<child link="body_link"/>
+		<origin xyz="0 0 0.342" rpy="0 0 0" />
+	</joint>
+	
+
+	<joint name="HeadPan" type="revolute">
+		<parent link="body_link"/>
+		<child link="HeadPan_link"/>
+		<origin xyz="0 0 0.0205" rpy="0 0 0" />
+			<axis xyz="0 0 1" />
+			<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<joint name="HeadTilt" type="revolute">
+		<parent link="HeadPan_link"/>
+		<child link="HeadTilt_link"/>
+		<origin xyz="0 0 0.03" rpy="0 ${33.0*pi/180.0} 0" />
+		<axis xyz="0 -1 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<!-- Arms-->
+		<!-- Left structure-->
+
+	<!-- left shoulder pitch link -->
+	<joint name="LShoulderPitch" type="revolute">
+		<parent link="body_link"/>
+		<child link="LShoulderPitch_link"/>
+			<origin xyz="0 0.0575 0" rpy="0 0 0" />
+			<axis xyz="0 1 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	
+
+	<joint name="LShoulderRoll" type="revolute">
+		<parent link="LShoulderPitch_link"/>
+		<child link="LShoulderRoll_link"/>
+		<origin xyz="0 0.0245 -0.016" rpy="${45.0*pi/180.0} 0 0" />
+		<axis xyz="-1 0 0" />
+		<limit effort="2.8" velocity="5.648668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<!-- left elbow link -->
+	<joint name="l_el" type="revolute">
+		<parent link="LShoulderRoll_link"/>
+		<child link="l_el_link"/>
+		<origin xyz="0.016 0 -0.06" rpy="0 ${-pi*0.5} 0" />
+		<axis xyz="0 1 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<joint name="RShoulderPitch" type="revolute">
+		<parent link="body_link"/>
+		<child link="RShoulderPitch_link"/>
+		<origin xyz="0 -0.0575 0" rpy="0 0 0" />
+		<axis xyz="0 -1 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<!-- right shoulder roll link -->
+	<joint name="RShoulderRoll" type="revolute">
+		<parent link="RShoulderPitch_link"/>
+		<child link="RShoulderRoll_link"/>
+		<origin xyz="0 -0.0245 -0.016" rpy="${-45.0*pi/180.0} 0 0" />
+		<axis xyz="-1 0 0" />
+		<limit effort="2.8" velocity="5.648668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<!-- right elbow link -->
+	<joint name="r_el" type="revolute">
+		<parent link="RShoulderRoll_link"/>
+		<child link="r_el_link"/>
+		<origin xyz="0.016 0 -0.06" rpy="0 ${-pi*0.5} 0" />
+		<axis xyz="0 -1 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<joint name="l_hip_yaw" type="revolute">
+		<parent link="body_link"/>
+		<child link="l_hip_yaw_link"/>
+			<origin xyz="-0.005 0.037 -0.0907" rpy="0 0 0" />
+			<axis xyz="0 0 -1" />
+			<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+	<!-- left hip roll link -->
+	<joint name="LHipRoll" type="revolute">
+		<parent link="l_hip_yaw_link"/>
+		<child link="LHipRoll_link"/>
+		<origin xyz="0 0 -0.0315" rpy="0 0 0" />
+		<axis xyz="-1 0 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<!-- left hip pitch link -->
+	<joint name="LHipPitch" type="revolute">
+		<parent link="LHipRoll_link"/>
+		<child link="LHipPitch_link"/>
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<axis xyz="0 -1 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<!-- left knee link -->
+	<joint name="LKnee" type="revolute">
+		<parent link="LHipPitch_link"/>
+		<child link="LKnee_link"/>
+		<origin xyz="0 0 -0.093" rpy="0 0 0" />
+		<axis xyz="0 -1 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<joint name="LAnklePitch" type="revolute">
+		<parent link="LKnee_link"/>
+		<child link="LAnklePitch_link"/>
+		<origin xyz="0 0 -0.093" rpy="0 0 0" />
+		<axis xyz="0 1 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<joint name="LAnkleRoll" type="revolute">
+		<parent link="LAnklePitch_link"/>
+		<child link="LAnkleRoll_link"/>
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<axis xyz="1 0 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<!-- right hip yaw link -->
+	<joint name="RHipYaw" type="revolute">
+		<parent link="body_link"/>
+		<child link="RHipYaw_link"/>
+		<origin xyz="-0.005 -0.037 -0.0907" rpy="0 0 0" />
+		<axis xyz="0 0 -1" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<!-- right hip roll link -->
+	<joint name="RHipRoll" type="revolute">
+		<parent link="RHipYaw_link"/>
+		<child link="RHipRoll_link"/>
+		<origin xyz="0 0 -0.0315" rpy="0 0 0" />
+		<axis xyz="-1 0 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<joint name="RHipPitch" type="revolute">
+		<parent link="RHipRoll_link"/>
+		<child link="RHipPitch_link"/>
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<axis xyz="0 1 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	
+
+	<!-- right knee link -->
+	<joint name="RKnee" type="revolute">
+		<parent link="RHipPitch_link"/>
+		<child link="RKnee_link"/>
+		<origin xyz="0 0 -0.093" rpy="0 0 0" />
+		<axis xyz="0 1 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	
+
+		<!-- right ankle pitch link -->
+	<joint name="RAnklePitch" type="revolute">
+		<parent link="RKnee_link"/>
+		<child link="RAnklePitch_link"/>
+		<origin xyz="0 0 -0.093" rpy="0 0 0" />
+		<axis xyz="0 -1 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	
+
+	<!-- right ankle roll link -->
+	<joint name="r_ank_roll" type="revolute">
+		<parent link="RAnklePitch_link"/>
+		<child link="r_ank_roll_link"/>
+		<origin xyz="0 0 0" rpy="0 0 0" />
+		<axis xyz="1 0 0" />
+		<limit effort="2.8" velocity="5.6548668" lower="-2.6179939" upper="2.6179939" />
+	</joint>
+
+	<xacro:default_transmission joint="HeadPan"/>	
+	<xacro:default_transmission joint="HeadTilt"/>
+	<xacro:default_transmission joint="LShoulderPitch"/>
+	<xacro:default_transmission joint="LShoulderRoll"/>
+	<xacro:default_transmission joint="l_el"/>
+	<xacro:default_transmission joint="RShoulderPitch"/>
+	<xacro:default_transmission joint="RShoulderRoll"/>
+	<xacro:default_transmission joint="r_el"/>
+	<xacro:default_transmission joint="l_hip_yaw"/>
+	<xacro:default_transmission joint="LHipRoll"/>
+	<xacro:default_transmission joint="LHipPitch"/>
+	<xacro:default_transmission joint="LKnee"/>
+	<xacro:default_transmission joint="LAnklePitch"/>
+	<xacro:default_transmission joint="LAnkleRoll"/>
+	<xacro:default_transmission joint="RHipYaw"/>
+	<xacro:default_transmission joint="RHipRoll"/>
+	<xacro:default_transmission joint="RHipPitch"/>
+	<xacro:default_transmission joint="RKnee"/>
+	<xacro:default_transmission joint="RAnklePitch"/>
+	<xacro:default_transmission joint="r_ank_roll"/>
+
+
+</robot>

@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<robot name="robotis_op2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- Gazebo -->
+	<gazebo>
+        <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+            <robot_param>robot_description</robot_param>
+            <robot_param_node>robot_state_publisher</robot_param_node>
+            <parameters>$(find op2_control)/config/op2_control.yaml</parameters>
+        </plugin>
+    </gazebo>
+
+    <gazebo reference="base_link">
+		<selfCollide>false</selfCollide>
+	</gazebo>
+	
+	<!-- body link -->
+	<gazebo reference="body_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<!-- head links -->
+	<gazebo reference="HeadPan_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="HeadTilt_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="head_cam_link">
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<!-- left arm links -->
+	<gazebo reference="l_back_link">
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="LShoulderPitch_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="LShoulderRoll_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="l_el_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<!-- right arm links -->
+	<gazebo reference="r_back_link">
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="RShoulderPitch_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="RShoulderRoll_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="r_sho_el_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<!-- left leg links -->
+	<gazebo reference="l_hip_yaw_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="LHipRoll_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="LHipPitch_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="LKnee_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="LAnklePitch_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="LAnkleRoll_link">
+    		<mu1>9000</mu1>
+    		<mu2>9000</mu2>
+    		<kp>1000000.0</kp>
+    		<kd>10.0</kd>
+    		<minDepth>0.001</minDepth>
+    		<maxContacts>1</maxContacts> 
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<!-- right leg links -->
+	<gazebo reference="RHipYaw_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="RHipRoll_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="RHipPitch_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="RKnee_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="RAnklePitch_link">
+		<mu1>0.5</mu1>
+		<mu2>0.5</mu2>
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+	<gazebo reference="r_ank_roll_link">
+    		<mu1>9000</mu1>
+    		<mu2>9000</mu2>
+    		<kp>1000000.0</kp>
+    		<kd>10.0</kd>
+    		<minDepth>0.001</minDepth>
+    		<maxContacts>1</maxContacts> 
+		<selfCollide>false</selfCollide>
+	</gazebo>
+
+</robot>

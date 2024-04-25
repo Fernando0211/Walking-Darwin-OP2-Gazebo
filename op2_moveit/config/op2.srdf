@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="robotis_op2">
+
+    <group name="head">
+        <joint name="HeadPan"/>
+        <joint name="HeadTilt"/>
+        <link name="body_link"/>
+    </group>
+
+    <group name="r_arm">
+        <joint name="RShoulderPitch"/>
+        <joint name="RShoulderRoll"/>
+        <joint name="r_el"/>
+        <link name="body_link"/>
+    </group>
+
+    <group name="l_arm">
+        <joint name="LShoulderPitch"/>
+        <joint name="LShoulderRoll"/>
+        <joint name="l_el"/>
+        <link name="body_link"/>
+    </group>
+
+    <group name="legs">
+        <joint name="l_hip_yaw"/>
+        <joint name="LHipRoll"/>
+        <joint name="LHipPitch"/>
+        <joint name="LKnee"/>
+        <joint name="LAnklePitch"/>
+        <joint name="LAnkleRoll"/>
+
+        <joint name="RHipYaw"/>
+        <joint name="RHipRoll"/>
+        <joint name="RHipPitch"/>
+        <joint name="RKnee"/>
+        <joint name="RAnklePitch"/>
+        <joint name="r_ank_roll"/>
+        <link name="body_link"/>
+    </group>
+
+    <group_state name="home_head" group="head">
+        <joint name="HeadPan" value="0"/>
+        <joint name="HeadTilt" value="0"/>
+    </group_state>
+
+    <group_state name="home_r_arm" group="r_arm">
+        <joint name="RShoulderPitch" value="0"/>
+        <joint name="RShoulderRoll" value="0"/>
+        <joint name="r_el" value="0"/>
+    </group_state>
+
+    <group_state name="home_l_arm" group="l_arm">
+        <joint name="LShoulderPitch" value="0"/>
+        <joint name="LShoulderRoll" value="0"/>
+        <joint name="l_el" value="0"/>
+    </group_state>
+
+    <group_state name="home_legs" group="legs">
+        <joint name="l_hip_yaw" value="0"/>
+        <joint name="LHipRoll" value="0"/>
+        <joint name="LHipPitch" value="0"/>
+        <joint name="LKnee" value="0"/>
+        <joint name="LAnklePitch" value="0"/>
+        <joint name="LAnkleRoll" value="0"/>
+
+        <joint name="RHipYaw" value="0"/>
+        <joint name="RHipRoll" value="0"/>
+        <joint name="RHipPitch" value="0"/>
+        <joint name="RKnee" value="0"/>
+        <joint name="RAnklePitch" value="0"/>
+        <joint name="r_ank_roll" value="0"/>
+    </group_state>
+
+    <virtual_joint name="world" type="fixed" parent_frame="parent" child_link="base_link"/>
+
+    <disable_collisions link1="HeadPan_link" link2="HeadTilt_link" reason="Adjacent"/>
+    <disable_collisions link1="HeadPan_link" link2="LHipPitch_link" reason="Never"/>
+    <disable_collisions link1="HeadPan_link" link2="LHipRoll_link" reason="Never"/>
+    <disable_collisions link1="HeadPan_link" link2="LShoulderPitch_link" reason="Never"/>
+    <disable_collisions link1="HeadPan_link" link2="RHipPitch_link" reason="Never"/>
+    <disable_collisions link1="HeadPan_link" link2="RHipRoll_link" reason="Never"/>
+    <disable_collisions link1="HeadPan_link" link2="RHipYaw_link" reason="Never"/>
+    <disable_collisions link1="HeadPan_link" link2="RShoulderPitch_link" reason="Never"/>
+    <disable_collisions link1="HeadPan_link" link2="body_link" reason="Adjacent"/>
+    <disable_collisions link1="HeadPan_link" link2="l_hip_yaw_link" reason="Never"/>
+    <disable_collisions link1="HeadTilt_link" link2="LHipRoll_link" reason="Never"/>
+    <disable_collisions link1="HeadTilt_link" link2="RHipRoll_link" reason="Never"/>
+    <disable_collisions link1="HeadTilt_link" link2="RHipYaw_link" reason="Never"/>
+    <disable_collisions link1="HeadTilt_link" link2="l_hip_yaw_link" reason="Never"/>
+    <disable_collisions link1="LAnklePitch_link" link2="LAnkleRoll_link" reason="Adjacent"/>
+    <disable_collisions link1="LAnklePitch_link" link2="LKnee_link" reason="Adjacent"/>
+    <disable_collisions link1="LAnkleRoll_link" link2="LKnee_link" reason="Always"/>
+    <disable_collisions link1="LHipPitch_link" link2="LHipRoll_link" reason="Adjacent"/>
+    <disable_collisions link1="LHipPitch_link" link2="LKnee_link" reason="Adjacent"/>
+    <disable_collisions link1="LHipPitch_link" link2="RShoulderPitch_link" reason="Never"/>
+    <disable_collisions link1="LHipRoll_link" link2="LShoulderPitch_link" reason="Never"/>
+    <disable_collisions link1="LHipRoll_link" link2="RShoulderPitch_link" reason="Never"/>
+    <disable_collisions link1="LHipRoll_link" link2="RShoulderRoll_link" reason="Never"/>
+    <disable_collisions link1="LHipRoll_link" link2="l_hip_yaw_link" reason="Adjacent"/>
+    <disable_collisions link1="LShoulderPitch_link" link2="LShoulderRoll_link" reason="Adjacent"/>
+    <disable_collisions link1="LShoulderPitch_link" link2="RHipPitch_link" reason="Never"/>
+    <disable_collisions link1="LShoulderPitch_link" link2="RHipRoll_link" reason="Never"/>
+    <disable_collisions link1="LShoulderPitch_link" link2="RHipYaw_link" reason="Never"/>
+    <disable_collisions link1="LShoulderPitch_link" link2="RShoulderPitch_link" reason="Never"/>
+    <disable_collisions link1="LShoulderPitch_link" link2="RShoulderRoll_link" reason="Never"/>
+    <disable_collisions link1="LShoulderPitch_link" link2="body_link" reason="Adjacent"/>
+    <disable_collisions link1="LShoulderPitch_link" link2="l_hip_yaw_link" reason="Never"/>
+    <disable_collisions link1="LShoulderRoll_link" link2="RHipRoll_link" reason="Never"/>
+    <disable_collisions link1="LShoulderRoll_link" link2="RHipYaw_link" reason="Never"/>
+    <disable_collisions link1="LShoulderRoll_link" link2="RShoulderPitch_link" reason="Never"/>
+    <disable_collisions link1="LShoulderRoll_link" link2="RShoulderRoll_link" reason="Never"/>
+    <disable_collisions link1="LShoulderRoll_link" link2="l_el_link" reason="Adjacent"/>
+    <disable_collisions link1="RAnklePitch_link" link2="RKnee_link" reason="Adjacent"/>
+    <disable_collisions link1="RAnklePitch_link" link2="r_ank_roll_link" reason="Adjacent"/>
+    <disable_collisions link1="RHipPitch_link" link2="RHipRoll_link" reason="Adjacent"/>
+    <disable_collisions link1="RHipPitch_link" link2="RKnee_link" reason="Adjacent"/>
+    <disable_collisions link1="RHipRoll_link" link2="RHipYaw_link" reason="Adjacent"/>
+    <disable_collisions link1="RHipRoll_link" link2="RShoulderPitch_link" reason="Never"/>
+    <disable_collisions link1="RHipYaw_link" link2="RShoulderPitch_link" reason="Never"/>
+    <disable_collisions link1="RHipYaw_link" link2="body_link" reason="Adjacent"/>
+    <disable_collisions link1="RHipYaw_link" link2="l_hip_yaw_link" reason="Never"/>
+    <disable_collisions link1="RShoulderPitch_link" link2="RShoulderRoll_link" reason="Adjacent"/>
+    <disable_collisions link1="RShoulderPitch_link" link2="body_link" reason="Adjacent"/>
+    <disable_collisions link1="RShoulderPitch_link" link2="l_hip_yaw_link" reason="Never"/>
+    <disable_collisions link1="RShoulderRoll_link" link2="l_hip_yaw_link" reason="Never"/>
+    <disable_collisions link1="RShoulderRoll_link" link2="r_el_link" reason="Adjacent"/>
+    <disable_collisions link1="body_link" link2="l_hip_yaw_link" reason="Adjacent"/>
+    
+</robot>

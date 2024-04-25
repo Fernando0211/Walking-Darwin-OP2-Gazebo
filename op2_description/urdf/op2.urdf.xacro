@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot name="robotis_op2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="op2_inertia.xacro" />
+    <xacro:include filename="op2.xacro" />
+    <xacro:include filename="op2_gazebo.xacro" />
+	<xacro:include filename="op2_control.xacro" />
+
+</robot>
