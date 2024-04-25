@@ -1,0 +1,327 @@
+# controller_manager:
+#   ros__parameters:
+#     update_rate: 10
+
+#     HeadPan_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     HeadTilt_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     RShoulderPitch_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     RShoulderRoll_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     r_el_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     LShoulderPitch_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     LShoulderRoll_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     l_el_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     RHipYaw_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     RHipRoll_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     RHipPitch_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     RKnee_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     RAnklePitch_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     r_ank_roll_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     l_hip_yaw_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     LHipRoll_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     LHipPitch_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     LKnee_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     LAnklePitch_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     LAnkleRoll_controller:
+#       type: joint_trajectory_controller/JointTrajectoryController
+
+#     joint_state_broadcaster:
+#       type: joint_state_broadcaster/JointStateBroadcaster
+
+# HeadPan_controller:
+#   ros__parameters:
+#     joints:
+#       - head_pan
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# HeadTilt_controller:
+#   ros__parameters:
+#     joints:
+#       - head_tilt
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+
+# RShoulderPitch_controller:
+#   ros__parameters:
+#     joints:
+#       - r_sho_pitch
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# RShoulderRoll_controller:
+#   ros__parameters:
+#     joints:
+#       - r_sho_roll
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# r_el_controller:
+#   ros__parameters:
+#     joints:
+#       - r_el
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# LShoulderPitch_controller:
+#   ros__parameters:
+#     joints:
+#       - l_sho_pitch
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# LShoulderRoll_controller:
+#   ros__parameters:
+#     joints:
+#       - l_sho_roll
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# l_el_controller:
+#   ros__parameters:
+#     joints:
+#       - l_el
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# RHipYaw_controller:
+#   ros__parameters:
+#     joints:
+#       - r_hip_yaw
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# RHipRoll_controller:
+#   ros__parameters:
+#     joints:
+#       - r_hip_roll
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# RHipPitch_controller:
+#   ros__parameters:
+#     joints:
+#       - r_hip_pitch
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# RKnee_controller:
+#   ros__parameters:
+#     joints:
+#       - r_knee
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# RAnklePitch_controller:
+#   ros__parameters:
+#     joints:
+#       - r_ank_pitch
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# r_ank_roll_controller:
+#   ros__parameters:
+#     joints:
+#       - r_ank_roll
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# l_hip_yaw_controller:
+#   ros__parameters:
+#     joints:
+#       - l_hip_yaw
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# LHipRoll_controller:
+#   ros__parameters:
+#     joints:
+#       - l_hip_roll
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# LHipPitch_controller:
+#   ros__parameters:
+#     joints:
+#       - l_hip_pitch
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# LKnee_controller:
+#   ros__parameters:
+#     joints:
+#       - l_knee
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# LAnklePitch_controller:
+#   ros__parameters:
+#     joints:
+#       - l_ank_pitch
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+# LAnkleRoll_controller:
+#   ros__parameters:
+#     joints:
+#       - l_ank_roll
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+
+    robot_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+robot_controller:
+  ros__parameters:
+    joints:
+      - head_pan
+      - head_tilt
+      - l_sho_pitch
+      - l_sho_roll
+      - l_el
+      - r_sho_pitch
+      - r_sho_roll
+      - r_el
+      - l_hip_yaw
+      - l_hip_roll
+      - l_hip_pitch
+      - l_knee
+      - l_ank_pitch
+      - l_ank_roll
+      - r_hip_yaw
+      - r_hip_roll
+      - r_hip_pitch
+      - r_knee
+      - r_ank_pitch
+      - r_ank_roll
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true

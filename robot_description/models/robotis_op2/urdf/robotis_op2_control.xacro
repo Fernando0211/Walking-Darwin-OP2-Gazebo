@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    
+    <ros2_control name="RobotSystem" type="system">
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+
+        <joint name="head_pan">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="head_tilt">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="l_sho_pitch">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="l_sho_roll">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="l_el">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="r_sho_pitch">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="r_sho_roll">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="r_el">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="l_hip_yaw">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="l_hip_roll">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="l_hip_pitch">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="l_knee">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="l_ank_pitch">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="l_ank_roll">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="r_hip_yaw"> 
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="r_hip_roll">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+
+        <joint name="r_hip_pitch">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="r_knee">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="r_ank_pitch">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+        <joint name="r_ank_roll">
+            <command_interface name="position">
+                <param name="min">-2.6179939</param>
+                <param name="max">2.6179939</param>
+            </command_interface>
+            <state_interface name="position"/>
+        </joint>
+
+    </ros2_control>
+
+</robot>
